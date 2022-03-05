@@ -9,6 +9,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  background-image: linear-gradient(to left, #eeaeca, #94bbe9);
 }
 
 h1 {
@@ -34,4 +35,8 @@ button {
   width: 200px;
   height: 50px;
   margin: 0 auto;
+}
+
+.results {
+  align-self: center;
 }
