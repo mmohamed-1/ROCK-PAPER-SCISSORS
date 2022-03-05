@@ -24,10 +24,10 @@ h1 {
 i {
   padding: 20px;
   font-size: 50px;
-  margin: 0 20px;
+  margin: 10px 20px;
 }
 .container i:hover {
-  transform: scale(2);
+  transform: scale(2.1);
 }
 
 button {
