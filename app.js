@@ -8,24 +8,31 @@ const choice = ["rock", "paper", "scissors"];
 let computerScore = 0;
 let playerScore = 0;
 
-let games = 5;
-let gameOver = false;
+let winningScore = 5;
+let stopGame = false;
 
+// event listeners for the rock, paper and scissors so user can pick and play against computer
 rock.addEventListener("click", function () {
-  console.log((results.textContent = playRound("rock", computerPlay())));
+  results.textContent = playRound("rock", computerPlay());
+  game();
 });
 paper.addEventListener("click", function () {
   results.textContent = playRound("paper", computerPlay());
+  game();
 });
 scissors.addEventListener("click", function () {
   results.textContent = playRound("scissors", computerPlay());
+  game();
 });
 
+// computer choices with random logic
 function computerPlay() {
   let picked = Math.floor(Math.random() * choice.length);
   let result = choice[picked];
   return result;
 }
+
+// player and computer selection and if statements
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "scissors") {
@@ -53,9 +60,17 @@ function playRound(playerSelection, computerSelection) {
 }
 
 // console.log
+// let computerScore = 0;
+// let playerScore = 0;
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    console.log(playRound("rock", computerPlay()));
-  }
-}
+// function game() {
+//   if (!stopGame) {
+//     playerScore += 1;
+//     computerScore += 1;
+//     if (computerScore === winningScore) {
+//       stopGame = true;
+//     }
+
+//     computerUi.textContent = computerScore;
+//   }
+// }
