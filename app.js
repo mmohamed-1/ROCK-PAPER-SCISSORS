@@ -9,9 +9,7 @@ const resetBtn = document.querySelector(".reset-btn");
 
 let computerScore = 0;
 let playerScore = 0;
-
 let winningScore = 5;
-let gameOver = false;
 
 // computer choices with random logic
 function computerPlay() {
@@ -22,13 +20,12 @@ function computerPlay() {
 
 // player and computer selection and if statements
 
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection, winner) {
   if (playerSelection === "rock" && computerSelection === "scissors") {
     playerUi.textContent = playerScore += 1;
     return "Player Wins! rock beats scissors";
-    playerUi.textContent = playerScore += 1;
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    playerUi.textContent = playerScore += 1;
+    playerUi.textContent = playerScore++;
     return "Player Wins! paper beats rock";
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
     playerUi.textContent = playerScore += 1;
@@ -51,16 +48,25 @@ function playGame() {
   rock.addEventListener("click", function () {
     if (computerScore !== winningScore && playerScore !== winningScore) {
       results.textContent = playRound("rock", computerPlay());
+    } else {
+      results.textContent =
+        computerScore === winningScore ? "computer has  won" : `player has won`;
     }
   });
   paper.addEventListener("click", function () {
     if (computerScore !== winningScore && playerScore !== winningScore) {
       results.textContent = playRound("paper", computerPlay());
+    } else {
+      results.textContent =
+        computerScore === winningScore ? "computer has  won" : `player has won`;
     }
   });
   scissors.addEventListener("click", function () {
     if (computerScore !== winningScore && playerScore !== winningScore) {
       results.textContent = playRound("scissors", computerPlay());
+    } else {
+      results.textContent =
+        computerScore === winningScore ? "computer has  won" : `player has won`;
     }
   });
 }
