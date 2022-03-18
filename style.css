@@ -64,3 +64,9 @@ button {
   font-size: 20px;
   border: 1px solid black;
 }
+
+/* winning player */
+
+.winner {
+  color: green;
+}
