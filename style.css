@@ -53,3 +53,14 @@ button {
   padding: 20px;
   gap: 20px;
 }
+/*  reset button */
+
+.reset {
+  margin: 20px auto;
+}
+.reset-btn {
+  background-image: linear-gradient(to left, #eeaeca, #94bbe9);
+  color: #fff;
+  font-size: 20px;
+  border: 1px solid black;
+}

@@ -5,25 +5,13 @@ const results = document.querySelector(".results");
 const computerUi = document.querySelector(".computerScore");
 const playerUi = document.querySelector(".playerScore");
 const choice = ["rock", "paper", "scissors"];
+const resetBtn = document.querySelector(".reset-btn");
+
 let computerScore = 0;
 let playerScore = 0;
 
 let winningScore = 5;
-let stopGame = false;
-
-// event listeners for the rock, paper and scissors so user can pick and play against computer
-rock.addEventListener("click", function () {
-  results.textContent = playRound("rock", computerPlay());
-  game();
-});
-paper.addEventListener("click", function () {
-  results.textContent = playRound("paper", computerPlay());
-  game();
-});
-scissors.addEventListener("click", function () {
-  results.textContent = playRound("scissors", computerPlay());
-  game();
-});
+let gameOver = false;
 
 // computer choices with random logic
 function computerPlay() {
@@ -59,18 +47,30 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-// console.log
-// let computerScore = 0;
-// let playerScore = 0;
+function playGame() {
+  rock.addEventListener("click", function () {
+    if (computerScore !== winningScore && playerScore !== winningScore) {
+      results.textContent = playRound("rock", computerPlay());
+    }
+  });
+  paper.addEventListener("click", function () {
+    if (computerScore !== winningScore && playerScore !== winningScore) {
+      results.textContent = playRound("paper", computerPlay());
+    }
+  });
+  scissors.addEventListener("click", function () {
+    if (computerScore !== winningScore && playerScore !== winningScore) {
+      results.textContent = playRound("scissors", computerPlay());
+    }
+  });
+}
 
-// function game() {
-//   if (!stopGame) {
-//     playerScore += 1;
-//     computerScore += 1;
-//     if (computerScore === winningScore) {
-//       stopGame = true;
-//     }
+playGame();
 
-//     computerUi.textContent = computerScore;
-//   }
-// }
+resetBtn.addEventListener("click", function () {
+  playerScore = 0;
+  computerScore = 0;
+  playerUi.textContent = 0;
+  computerUi.textContent = 0;
+  results.textContent = "";
+});
